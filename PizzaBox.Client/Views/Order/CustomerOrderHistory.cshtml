@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PizzaBox.Client.Models.Order>
+
+@{
+    ViewData["Title"] = "CustomerOrderHistory";
+}
+
+<h1>CustomerOrderHistory</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TimePlaced)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Store.Name)
+            </th>
+            <th>
+                Number of Pizzas
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimePlaced)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Store.Name)
+            </td>
+            <td>
+                @item.Pizzas.Count()
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

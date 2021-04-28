@@ -1,0 +1,23 @@
+﻿@model PizzaBox.Client.Models.Order
+
+
+@using (Html.BeginForm("CustomerOrderHistory", "Order", FormMethod.Post))
+{
+    <div hidden="hidden">
+        @Html.EditorForModel()
+        @Html.EditorFor(model => model.Customer)
+    </div>
+
+    <input type="submit" value="Order History" />
+}
+@using (Html.BeginForm("Init", "Order", FormMethod.Post))
+{
+    <div hidden="hidden">
+        @Html.EditorForModel()
+        @Html.EditorFor(model => model.Customer)
+    </div>
+
+    <input type="submit" value="New Order" />
+}
+@{
+}

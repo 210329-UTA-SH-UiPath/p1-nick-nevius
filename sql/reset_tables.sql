@@ -1,0 +1,17 @@
+DELETE FROM dbo.Crusts
+DELETE FROM dbo.Customers
+DELETE FROM dbo.Orders
+DELETE FROM dbo.Pizzas
+DELETE FROM dbo.PizzaToppings
+DELETE FROM dbo.Sizes
+DELETE FROM dbo.Stores
+DELETE FROM dbo.Toppings
+
+DBCC CHECKIDENT ('Crusts', RESEED, 0)
+DBCC CHECKIDENT ('Customers', RESEED, 0)
+DBCC CHECKIDENT ('Orders', RESEED, 0)
+DBCC CHECKIDENT ('Pizzas', RESEED, 0)
+DBCC CHECKIDENT ('PizzaToppings', RESEED, 0)
+DBCC CHECKIDENT ('Sizes', RESEED, 0)
+DBCC CHECKIDENT ('Stores', RESEED, 0)
+DBCC CHECKIDENT ('Toppings', RESEED, 0)

@@ -1,0 +1,32 @@
+﻿@model PizzaBox.Client.Models.Customer
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+
+        @using (Html.BeginForm("SelectedCustomer", "Customer", FormMethod.Post))
+        {
+
+
+                <label asp-for="Name" class="control-label"></label>
+                @Html.TextBoxFor(m => m.Name)
+                <input type="submit" value="Create" class="btn btn-primary" />
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
