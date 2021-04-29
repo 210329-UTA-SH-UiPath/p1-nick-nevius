@@ -1,23 +1,10 @@
-﻿@model PizzaBox.Client.Models.Order
+﻿@model PizzaBox.Client.Models.Customer
 
 
-@using (Html.BeginForm("CustomerOrderHistory", "Order", FormMethod.Post))
-{
-    <div hidden="hidden">
-        @Html.EditorForModel()
-        @Html.EditorFor(model => model.Customer)
-    </div>
-
-    <input type="submit" value="Order History" />
+@{ 
+// TODO:
+// this should be changed to just use an action link and passing the customer name through it
 }
-@using (Html.BeginForm("Init", "Order", FormMethod.Post))
-{
-    <div hidden="hidden">
-        @Html.EditorForModel()
-        @Html.EditorFor(model => model.Customer)
-    </div>
 
-    <input type="submit" value="New Order" />
-}
-@{
-}
+@Html.ActionLink("Order History", "CustomerOrderHistory", "Order", new { Name = Model.Name })
+@Html.ActionLink("New Order", "Select", "Store")

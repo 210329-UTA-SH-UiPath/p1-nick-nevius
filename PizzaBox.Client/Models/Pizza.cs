@@ -22,15 +22,16 @@ namespace PizzaBox.Client.Models
         public string Name { get; set; }
         public PIZZA_TYPE PizzaType { get; set; }
 
-        private decimal price = 0.0m;
+        //private decimal price = 0.0m;
         public decimal Price
         {
             get
             {
-                if (price != 0.0m)
-                {
-                    return price;
-                }
+                //if (price != 0.0m)
+                //{
+                //return price;
+                //}
+                var price = 0.0m;
                 price += Crust.Price;
                 price += Size.Price;
                 price += Toppings.Sum(t => t.Price);
@@ -38,7 +39,7 @@ namespace PizzaBox.Client.Models
             }
             set
             {
-                price = value;
+                //price = value;
             }
         }
 
@@ -73,6 +74,8 @@ namespace PizzaBox.Client.Models
         private void Factory()
         {
             Toppings = new List<Topping>();
+            Crust = new Crust();
+            Size = new Size();
         }
     }
 }

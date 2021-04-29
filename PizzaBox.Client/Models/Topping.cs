@@ -15,6 +15,7 @@ namespace PizzaBox.Client.Models
     }
     public class Topping
     {
+        public int ID { get; set; }
         public string Name { get; set; }
 
         public decimal Price { get; set; }

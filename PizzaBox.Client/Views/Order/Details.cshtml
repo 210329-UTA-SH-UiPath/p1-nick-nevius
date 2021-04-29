@@ -1,0 +1,101 @@
+﻿@model PizzaBox.Client.Models.Order
+
+@{
+}
+
+
+@{
+    /*
+        Display basic information maybe in a table
+        Then display each pizza in a separate table
+    */
+}
+@Html.ActionLink("Back to Order History", "CustomerOrderHistory", "Order", new { Name = Model.Customer.Name })
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TimePlaced)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Store.Name)
+            </th>
+            <th>
+                Number of Pizzas
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.TimePlaced)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Store.Name)
+            </td>
+            <td>
+                @Model.Pizzas.Count()
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Pizza Type
+            </th>
+            <th>
+                Crust
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Toppings
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Pizzas)
+        {
+
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Crust.Name
+                </td>
+                <td>
+                    @item.Size.Name
+                </td>
+                <td>
+                    @{
+                        var str = "";
+                        item.Toppings.ForEach(t => str += t.ToString() + ", ");
+                        if (str.Length > 1)
+                        {
+                            str = str.Remove(str.Length - 2, 2);
+                        }
+                    }
+                    @str
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+

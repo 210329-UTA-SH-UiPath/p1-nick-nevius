@@ -1,0 +1,90 @@
+﻿@model PizzaBox.Client.Models.Pizza
+
+<table class="table">
+    <thead>
+    <th>
+        Total Price
+    </th>
+    </thead>
+    <tr>
+        <td>
+            @Model.Price
+        </td>
+    </tr>
+</table>
+
+@{
+    if (Model.Toppings.Count >= 2)
+    {
+        @Html.ActionLink("Finish adding Pizza", "CheckConstraints", "Order")
+        <br />
+    }
+
+    if (Model.Toppings.Count < 5)
+    {
+        @Html.ActionLink("Add Topping", "SelectTopping", "Pizza")
+        <br />
+    }
+
+    @Html.ActionLink("Change Crust", "SelectCrust", "Pizza")
+    <table class="table">
+        <thead>
+        <th>
+            Crust
+        </th>
+        </thead>
+        <tr>
+            <td>
+                @Model.Crust.Name - @Model.Crust.Price
+            </td>
+        </tr>
+    </table>
+
+    <br />
+    @Html.ActionLink("Change Size", "SelectSize", "Pizza")
+    <table class="table">
+        <thead>
+        <th>
+            Size
+        </th>
+        </thead>
+        <tr>
+            <td>
+                @Model.Size.Name - @Model.Size.Price
+            </td>
+        </tr>
+    </table>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Topping
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Toppings.Count; i++)
+        {
+            var item = Model.Toppings[i];
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    @Html.ActionLink("Remove", "RemoveTopping", "Pizza", new { Index = i })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

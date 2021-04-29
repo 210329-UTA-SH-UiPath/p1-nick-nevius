@@ -1,0 +1,22 @@
+﻿@model PizzaBox.Client.Models.OrderItem
+
+@{
+}
+
+<div >
+    @Html.EditorForModel()
+    @Html.EditorFor(model => model.Order)
+    @Html.EditorFor(model => model.Order.Customer)
+    @{ 
+        for (int i = 0; i < Model.Order.Pizzas.Count; i++)
+        {
+            var curPizza = Model.Order.Pizzas[i];
+            @Html.EditorFor(model => model.Order.Pizzas[i]);
+            for (int j = 0; j < curPizza.Toppings.Count; j++)
+            {
+                @Html.EditorFor(model => model.Order.Pizzas[i].Toppings[j])
+            }
+        }
+    }
+
+</div>

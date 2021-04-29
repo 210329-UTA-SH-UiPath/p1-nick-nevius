@@ -1,0 +1,13 @@
+﻿@model PizzaBox.Client.Models.OrderItem
+
+@{
+}
+
+
+<form asp-controller="Pizza" asp-action="CrustSelected" method="post">
+    <select asp-for="CrustType" asp-items="ViewBag.CrustTypes"></select>
+    @{
+
+    }
+    <input type="submit" value="Select Crust" />
+</form>

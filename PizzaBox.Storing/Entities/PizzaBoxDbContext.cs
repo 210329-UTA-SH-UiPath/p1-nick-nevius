@@ -19,7 +19,7 @@ namespace PizzaBox.Storing.Entities
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer("Server=tcp:pizzaboxapp-nick.database.windows.net,1433;Initial Catalog=PizzaBoxDB-Nick;User ID=dev;Password=<password>");
+            options.UseSqlServer("Server=tcp:pizzaboxapp-nick.database.windows.net,1433;Initial Catalog=PizzaBoxDB-Nick;User ID=dev;Password=<sekrit password>");
         }
 
         public DbSet<Crust> Crusts { get; set; }

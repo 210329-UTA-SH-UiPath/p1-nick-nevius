@@ -18,25 +18,29 @@ namespace PizzaBox.Client.Controllers
         public IActionResult Index()
         {
             // let them select a customer
-            return View();
+            return View(new Models.Customer());
         }
-
         
         [HttpPost]
-        public IActionResult SelectedCustomer(Models.Customer cust)
+        public IActionResult SelectedCustomer(Models.Customer customer)
         {
-            if (cust is null)
+            if (customer is null)
             {
                 return BadRequest("Customer was null somehow");
             }
             var customers = client.GetAllCustomers();
-            var foundCustomer = customers.FirstOrDefault(c => c.Name.Equals(cust.Name));
+            var foundCustomer = customers.FirstOrDefault(c => c.Name.Equals(customer.Name));
+
+            var sessionOrder = Utils.GetCurrentOrder(HttpContext.Session);
+
             if (foundCustomer is not null)
             {
-                cust.ID = foundCustomer.ID;
+                sessionOrder.Customer.ID = foundCustomer.ID;
             }
+            sessionOrder.Customer.Name = customer.Name;
+            Utils.SaveOrder(HttpContext.Session, sessionOrder);
 
-            return View("Menu", new Models.Order { Customer = cust });
+            return View("Menu", customer);
         }
     }
 }

@@ -21,7 +21,9 @@
             <th>
                 Number of Pizzas
             </th>
-            <th></th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -38,6 +40,13 @@
             </td>
             <td>
                 @item.Pizzas.Count()
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { ID = item.ID })
+                @{ 
+                    // display the details for /Order/CustomerName
+                }
+
             </td>
         </tr>
 }

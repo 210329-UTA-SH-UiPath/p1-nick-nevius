@@ -35,6 +35,7 @@ namespace p1_nick_nevius
 
 			services.AddControllers();
 
+			// lol no
 			//services.AddDbContext<PizzaBox.Storing.Entities.PizzaBoxDbContext>(options =>
 			//options.UseSqlServer("Server=tcp:pizzaboxapp-nick.database.windows.net,1433;Initial Catalog=PizzaBoxDB-Nick;User ID=dev;Password=<password>")
 			//);

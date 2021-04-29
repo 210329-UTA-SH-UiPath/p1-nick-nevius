@@ -1,0 +1,13 @@
+﻿@model PizzaBox.Client.Models.OrderItem
+
+@{
+}
+
+
+<form asp-controller="Pizza" asp-action="SizeSelected" method="post">
+    <select asp-for="SizeType" asp-items="ViewBag.SizeTypes"></select>
+    @{
+       
+    }
+    <input type="submit" value="Select Size" />
+</form>

@@ -7,6 +7,7 @@ namespace PizzaBox.Client.Models
 {
     public class Order
     {
+        public int ID { get; set; }
         public Store Store { get; set; }
         public Customer Customer { get; set; }
         public List<Pizza> Pizzas { get; set; }
@@ -21,7 +22,7 @@ namespace PizzaBox.Client.Models
 
         public Order()
         {
-            TimePlaced = new System.DateTime();
+            TimePlaced = System.DateTime.Now;
             Pizzas = new List<Pizza>();
             Store = new Store();
             Customer = new Customer();
