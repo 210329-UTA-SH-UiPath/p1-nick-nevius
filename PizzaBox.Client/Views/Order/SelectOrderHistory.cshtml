@@ -1,0 +1,11 @@
+﻿@model PizzaBox.Client.Models.OrderHistory
+
+@{ 
+    <form asp-controller="Order" asp-action="HistorySelected" method="post">
+        <input asp-for="All" />
+        <input asp-for="Customer.Name" />
+        @Html.HiddenFor(model => model.StoreId)
+
+        <input type="submit" value="Select" />
+    </form>
+} 

@@ -1,0 +1,19 @@
+﻿@model PizzaBox.Client.Models.DateSelected
+
+@{ 
+/*
+    should be able to view revenue by week (inlcuding pizza type and count per type)
+    should be able to view revenue by month (including pizza type and count per type)
+
+    just give a form that lets them pick a Date
+    and a checkbox for either whole month or just 1 week from that date
+*/
+}
+
+<form asp-controller="Order" asp-action="DateSelected" method="post">
+    
+    <input class="form-control" asp-for="Day" />
+    <input asp-for="WholeMonth" />
+    @Html.HiddenFor(model => model.StoreId)
+    <input type="submit" value="Select" />
+</form>

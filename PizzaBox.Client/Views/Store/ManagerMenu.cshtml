@@ -1,0 +1,21 @@
+﻿@model PizzaBox.Client.Models.Store
+
+@{
+    /*
+    should be able to view an options menu for order history and sales report
+    should be able to select an option
+    if option for store orders
+    should be able to view order history
+    if option for store orders by customer (filtering)
+    should be able to view order history for a customer
+    if option for sales report
+    should be able to view revenue by week (inlcuding pizza type and count per type)
+    should be able to view revenue by month (including pizza type and count per type)
+    */
+}
+@{
+
+        @Html.ActionLink("Order History", "SelectOrderHistory", "Order", new { StoreID = Model.ID })
+        <br />
+        @Html.ActionLink("Sales Report", "SelectSalesReport", "Order", new { StoreID = Model.ID })
+}

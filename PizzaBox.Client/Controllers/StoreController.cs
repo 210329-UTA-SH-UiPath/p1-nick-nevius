@@ -41,6 +41,24 @@ namespace PizzaBox.Client.Controllers
             return View(new Models.Store() { });
         }
 
+        [HttpPost]
+        public IActionResult StoreManagerSelected(Models.Store store)
+        {
+            var dbStore = client.GetAllStores().FirstOrDefault(s => s.ID == store.ID);
+            if (dbStore is null)
+            {
+                return BadRequest("How did you even manage to do this, man?");
+            }
+            return RedirectToAction("ManagerMenu", new { StoreId = dbStore.ID });
+        }
+
+        [HttpGet]
+        public IActionResult ManagerMenu(int StoreId)
+        {
+            var store = client.GetAllStores().FirstOrDefault(s => s.ID == StoreId);
+            return View(store);
+        }
+
         public IActionResult Select()
         {
             // get list of available stores and pass them in through a viewbag

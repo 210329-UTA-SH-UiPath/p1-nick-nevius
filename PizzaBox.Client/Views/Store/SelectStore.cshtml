@@ -1,1 +1,7 @@
-﻿
+﻿@model PizzaBox.Client.Models.Store
+
+<label>Store to Order From:</label>
+<form asp-controller="Store" asp-action="StoreManagerSelected" method="post">
+    <select asp-for="ID" asp-items="ViewBag.Stores"></select>
+    <input type="submit" value="Pick" />
+</form>
